@@ -3,7 +3,7 @@ import axios, { AxiosError, AxiosRequestConfig, CancelTokenSource } from "axios"
 import _ from "lodash"
 import { ErrorCode, HandledError } from "../error"
 
-const apiUrl = "http://localhost:3001/api/v1"
+const apiUrl = process.env.NODE_ENV === "production" ? "http://192.168.1.11:3001/api/v1" : "http://localhost:3001/api/v1"
 
 enum HttpMethod {
     POST = "POST",

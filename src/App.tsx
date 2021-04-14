@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Suspense } from "react"
+import { Redirect, Route, Router, Switch } from "react-router-dom"
+import { observer } from "mobx-react"
+import { FullScreenLoader } from "./components/loader"
+import { ChatDetails, ChatsEdit } from "./containers/chats"
+import { Dialog } from "./containers/dialog/Dialog"
+import { UsersDetails, UsersEdit, UsersList } from "./containers/users"
+import BrowserService from "./services/BrowserService"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = observer(() => {
+    return (
+        <Suspense fallback={<FullScreenLoader />}>
+            <Router history={BrowserService.history}>
+                <Switch>
+                    <Route path={"/users/:userId/chat/new"} exact component={ChatsEdit} />
+                    <Route path={"/users/:userId/chat/:chatId/edit"} exact component={ChatsEdit} />
+                    <Route path={"/users/:userId/chat/:chatId"} component={ChatDetails} />
+                    <Route path={"/users/new"} exact component={UsersEdit} />
+                    <Route path={"/users/:id/edit"} exact component={UsersEdit} />
+                    <Route path={"/users/:id"} component={UsersDetails} />
+                    <Route path={"/users"} component={UsersList} />
+                    <Redirect to={"/users"} />
+                </Switch>
+            </Router>
+            <Dialog />
+        </Suspense>
+    )
+})
 
-export default App;
+export default App

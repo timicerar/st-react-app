@@ -1,0 +1,208 @@
+.dialog-container-wrapper {
+    background: rgba(0, 0, 0, .85);
+    position: fixed;
+    left: 0;
+    overflow: auto;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    padding: 20px 10px;
+    z-index: 9999;
+    display: flex;
+}
+
+@media only screen and (max-width: 576px) {
+    .dialog-container-wrapper {
+        padding: 0;
+    }
+}
+
+.dialog-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.dialog-container .loader {
+    margin: auto;
+}
+
+.dialog {
+    text-align: center;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+    display: none;
+    margin: auto;
+}
+
+.dialog:last-child {
+    display: block;
+}
+
+.dialog-text {
+    margin-bottom: 20px;
+    white-space: pre-wrap;
+}
+
+.dialog-title {
+    font-size: 24px;
+    font-family: "Roboto Medium", sans-serif;
+    text-transform: uppercase;
+    color: #000;
+    font-weight: 900;
+    margin: 8px 0 10px;
+    display: inline-block;
+}
+
+.dialog-focus-btn {
+    width: 10px;
+    height: 10px;
+    outline: 0;
+    border: 0;
+    padding: 0;
+    opacity: 0;
+}
+
+.dialog-actions {
+    background: white;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.dialog-actions-fullscreen {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 600px) {
+    .dialog-actions {
+        bottom: auto;
+        max-width: 400px;
+    }
+
+    .dialog-actions-fullscreen {
+        height: auto;
+    }
+}
+
+.dialog-action {
+    width: 100%;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    background: transparent;
+    border-bottom: 1px solid #ebebeb;
+    padding: 16px 10px 14px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.dialog-cancel {
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    padding: 25px 10px 23px;
+    color: #0286cd;
+    text-transform: uppercase;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: "Roboto Medium", sans-serif;
+}
+
+.dialog-item-text-normal {
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.29;
+    letter-spacing: 2px;
+    color: black !important;
+    flex: 1;
+}
+
+.dialog-item-text-bold {
+    font-family: "Roboto Medium", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.29;
+    letter-spacing: 2px;
+    color: black !important;
+    flex: 1;
+}
+
+.dialog-button {
+    width: 100%;
+    height: 48px;
+    background: black;
+    border: 1px solid black;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    font-family: "Roboto", sans-serif;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: 2px;
+    text-align: left;
+    transition: all .15s;
+    display: inline-block;
+}
+
+.dialog-button:hover {
+    background: black;
+    border: 1px solid black;
+}
+
+.dialog-button:focus, .dialog-button:active {
+    border: 1px solid black;
+}
+
+.dialog-button-text {
+    flex: 1;
+}
+
+.dialog-arrow {
+    transform: rotate(90deg);
+}
+
+.dialog-check {
+    display: block;
+    float: right;
+}
+
+.dialog-flex-grow {
+    flex: 1;
+    overflow: auto;
+}
+
+.dialog-space-between {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dialog-button-padding {
+    padding: 15px;
+}
+
+.dialog-caption {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
